@@ -1,0 +1,30 @@
+ConfigFile
+----------
+
+John Vinters, 6-June-2010
+
+Introduction
+------------
+
+ConfigFile provides a very simple configuration file implementation for
+Ada 2005 programs.  It can store/recall Boolean/Float/Long_Float/String
+values.
+
+Notes
+-----
+
+1.  Whitespace and control characters are trimmed from the beginning and
+    end of control keys/values.
+
+2.  Storing strings with embedded LF/CR characters will not work correctly.
+
+3.  Length (Key) + Length (Value) + 1 < Config_File.MAX_LINE_LENGTH.
+
+4.  Not task safe; accesses from multiple tasks should be serialized.
+
+Licence
+-------
+
+GPL Version 3 (or later) with linking/generic exception (commonly known as
+the "GNAT Modified GPL").
+
