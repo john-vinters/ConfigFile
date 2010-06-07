@@ -18,7 +18,8 @@ Notes
 
 2.  Storing strings with embedded LF/CR characters will not work correctly.
 
-3.  Length (Key) + Length (Value) + 1 < Config_File.MAX_LINE_LENGTH.
+3.  Maximum Key/Value size is limited by available stack space when loading
+    from disk.
 
 4.  Not task safe; accesses from multiple tasks should be serialized.
 

@@ -158,8 +158,6 @@ private
       Equivalent_Keys	=> Ada.Strings.Unbounded."=",
       "="		=> Ada.Strings.Unbounded."=");
 
-   MAX_LINE_LENGTH	: constant Positive := 1024;
-
    type Config_Data is record
       Data		: Config_Hash.Map;
       Read_Only		: Boolean := False;

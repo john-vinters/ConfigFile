@@ -136,6 +136,19 @@ package body Config_File is
    is
       File		: File_Type;
       Opened		: Boolean := False;
+
+      function Read_Line (F : in File_Type) return String is
+         Last		: Natural;
+         Result		: String (1 .. 256);
+      begin
+         Get_Line (F, Result, Last);
+         if Last = Result'Last then
+            return Result & Read_Line (F);
+         else
+            return Result (1 .. Last);
+         end if;
+      end Read_Line;
+
    begin
       Config_Hash.Clear (This.Data);
       This.Read_Only := False;
@@ -146,16 +159,10 @@ package body Config_File is
       while not End_Of_File (File) loop
          declare
             Key		: Unbounded_String;
+            Str		: constant String := Read_Line (File);
             Value	: Unbounded_String;
-            Str		: String (1 .. MAX_LINE_LENGTH);
-            Str_Len	: Positive;
          begin
-            Get_Line (File, Str, Str_Len);
-            if Str_Len = Str'Last then
-               raise CONFIG_IO_ERROR;		--  line too long
-            end if;
-
-            Split_Input (Str (1 .. Str_Len), Key, Value);
+            Split_Input (Str, Key, Value);
             Set_Unbounded_String (This, Key, Value);
          end;
       end loop;
