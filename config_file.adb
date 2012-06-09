@@ -354,7 +354,7 @@ package body Config_File is
    -------------------
 
    function Trim_Nonprint (This : in String) return String is
-      Left		: Natural := This'Last;
+      Left		: Natural := This'Last + 1;
       Right		: Natural := This'First;
    begin
       for i in This'Range loop
@@ -364,7 +364,7 @@ package body Config_File is
          end if;
       end loop;
 
-      if Left = This'Last then
+      if Left > This'Last then
          return "";
       end if;
 
