@@ -74,6 +74,20 @@ package body Config_File is
       return Float'Value (Result);
    end Get_Float;
 
+   -----------------
+   -- Get_Integer --
+   -----------------
+   function Get_Integer
+     (This		: in Config_Data;
+      Key		: in String;
+      Must_Exist	: in Boolean := True;
+      Default		: in Integer := 0) return Integer 
+   is
+       Result : constant String := Get_String
+                        (This, Key, Must_Exist, Integer'Image (Default));
+   begin
+       return Integer'Value (Result);
+   end Get_Integer;
    --------------------
    -- Get_Long_Float --
    --------------------
