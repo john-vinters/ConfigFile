@@ -60,6 +60,18 @@ package Config_File is
    --  CONSTRAINT_ERROR may be raised if the value stored against the key
    --  isn't a valid Float.
 
+   function Get_Integer
+     (This		: in Config_Data;
+      Key		: in String;
+      Must_Exist	: in Boolean := True;
+      Default		: in Integer := 0) return Integer;
+   --  Looks up a Integer value.
+   --  If Must_Exist is False, then Default is returned if the Key can't be
+   --  found.  If Must_Exist is true then CONFIG_NOT_FOUND is raised if the
+   --  Key can't be found.
+   --  CONSTRAINT_ERROR may be raised if the value stored against the key
+   --  isn't a valid Integer 
+   
    function Get_Long_Float
      (This		: in Config_Data;
       Key		: in String;
