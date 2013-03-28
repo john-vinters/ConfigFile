@@ -264,6 +264,19 @@ package body Config_File is
       Set_String (This, Key, Float'Image (Value));
    end Set_Float;
 
+   -----------------
+   -- Set_Integer --
+   -----------------
+
+   procedure Set_Integer
+     (This		: in out Config_Data;
+      Key		: in     String;
+      Value		: in     Integer)
+   is
+   begin
+      Set_String (This, Key, Integer'Image (Value));
+   end Set_Integer;
+
    --------------------
    -- Set_Long_Float --
    --------------------

@@ -128,6 +128,13 @@ package Config_File is
    --  Stores a Float Key/Value pair.  CONFIG_READ_ONLY will be raised if
    --  the configuration is read only.
 
+   procedure Set_Integer
+     (This		: in out Config_Data;
+      Key		: in     String;
+      Value		: in     Integer);
+   --  Stores an Integer Key/Value pair.  CONFIG_READ_ONLY will be raised if
+   --  the configuration is read only.
+
    procedure Set_Long_Float
      (This		: in out Config_Data;
       Key		: in     String;
