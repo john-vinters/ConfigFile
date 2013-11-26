@@ -139,6 +139,23 @@ package body Config_File is
       end if;
    end Get_String;
 
+   ----------------
+   -- Is_Has_Key --
+   ----------------
+   function Is_Has_Key
+       (This    : in Config_Data;
+        Key     : in String) return Boolean 
+   is 
+      C			: Config_Hash.Cursor;
+      K			: constant Unbounded_String := 
+                            To_Unbounded_String (Key);
+   begin
+      C := Config_Hash.Find (This.Data, K);
+      if Config_Hash.Has_Element (C) then
+          return True; 
+      end if;
+      return False;
+   end Is_Has_Key; 
    ----------
    -- Load --
    ----------
