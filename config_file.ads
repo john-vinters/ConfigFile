@@ -97,10 +97,10 @@ package Config_File is
    --  found.  If Must_Exist is true then CONFIG_NOT_FOUND is raised if the
    --  Key can't be found.
 
-   function Is_Has_Key
-       (This    : in Config_Data; 
-        Key     : in String) return Boolean; 
-   --  Returns False if there is not Key in config file 
+   function Has_Key
+       (This		: in Config_Data; 
+        Key		: in String) return Boolean; 
+   --  Returns False if Key can't be found.  
 
    procedure Load
      (This		:    out Config_Data;
